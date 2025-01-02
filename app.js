@@ -31,6 +31,7 @@ const display = document.querySelector('#display');
 const numbers = document.querySelectorAll('.number');
 const operators = document.querySelectorAll('.operator');
 const equals = document.querySelector('.equals');
+const clear = document.querySelector('.clear');
 
 let operand1 = '';
 let operand2 = '';
@@ -68,4 +69,13 @@ equals.addEventListener('click', () => {
     //display result
     display.textContent = result;
   }
+})
+
+clear.addEventListener('click', () => {
+  // reset data
+  operand1 = '';
+  operand2 = '';
+  operator = '';
+  // reset display
+  display.textContent = '';
 })
