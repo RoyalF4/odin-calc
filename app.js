@@ -36,7 +36,6 @@ const clear = document.querySelector('.clear');
 let operand1 = '';
 let operand2 = '';
 let operator = '';
-let result;
 
 numbers.forEach( button => button.addEventListener('click', e => {
   if(operator === '') {
@@ -50,19 +49,29 @@ numbers.forEach( button => button.addEventListener('click', e => {
 
 operators.forEach( o => o.addEventListener('click', e => {
   if(operand1 !== '' && operator === '') {
-    display.textContent = '';
+    //display.textContent = '';
     operator = e.target.textContent;
     console.log(e.target.textContent)
+  } else if(operand1 !== '' && operand2 !== '' && operator !== '') {
+    // evalute current state
+    let result = operate(+operand1,+operand2,operator);
+    // set state with result
+    operand1 = result;
+    operand2 = '';
+    operator = e.target.textContent;
+
+    // set display
+    display.textContent = result;
   }
 }))
 
 equals.addEventListener('click', () => {
   if(operand1 !== '' && operand2  !== '' && operator !== '') {
     // perform operation
-    result = operate(+operand1,+operand2,operator);
+    let result = operate(+operand1,+operand2,operator);
   
     // reset values
-    operand1 = '';
+    operand1 = result;
     operand2 = '';
     operator = '';
   
