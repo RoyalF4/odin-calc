@@ -13,10 +13,13 @@
 #display {
   background: white;
   margin-bottom: 5px;
-  padding: 2px;
+  padding: 0 2px;
   border: 1px solid black;
   text-align: right;
   height: 30px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }
 
 #button-group {

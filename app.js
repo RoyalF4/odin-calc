@@ -11,6 +11,7 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+  if(num2 === 0) return 'error';
   return num1 / num2;
 }
 
@@ -71,7 +72,7 @@ equals.addEventListener('click', () => {
     let result = operate(+operand1,+operand2,operator);
   
     // reset values
-    operand1 = result;
+    operand1 = result === 'error' ? '' : result;
     operand2 = '';
     operator = '';
   
